@@ -1,0 +1,21 @@
+﻿# Ignore Visual Studio temporary files, build results, and user-specific files
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore build logs
+*.log
+
+# Ignore publish output
+publish/
+
+# Ignore .NET generated files
+*.dll
+*.pdb
+
+# Ignore local secrets
+appsettings.Development.json

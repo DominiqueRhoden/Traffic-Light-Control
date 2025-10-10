@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<!-- Targeting .NET 8 -->
+		<TargetFramework>net8.0</TargetFramework>
+
+		<!-- Enable nullable reference types for safety -->
+		<Nullable>enable</Nullable>
+
+		<!-- Simplifies imports like System, System.Linq, etc. -->
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Make sure the names match your repo/project -->
+		<RootNamespace>TrafficLightControl</RootNamespace>
+		<AssemblyName>TrafficLightControl</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
+	  <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.6" />
+	</ItemGroup>
+
+</Project>
