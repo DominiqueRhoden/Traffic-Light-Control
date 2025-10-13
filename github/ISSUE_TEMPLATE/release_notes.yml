@@ -1,0 +1,42 @@
+name: Release Notes Request
+description: Prepare or edit release notes for an upcoming or recent version
+title: "[Release Notes] v<version>"
+labels: ["release", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: "### 🏷️ Release Notes Preparation"
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: e.g., 1.0.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: highlights
+    attributes:
+      label: Highlights
+      description: List major new features, fixes, and changes.
+      placeholder: |
+        - feat: pedestrian preemption
+        - fix: timing drift in Yellow phase
+        - docs: API examples for ITrafficLightController
+
+  - type: textarea
+    id: breaking_changes
+    attributes:
+      label: Breaking changes
+      description: List any breaking changes or upgrade notes.
+      placeholder: Removed deprecated --emergency=auto; use --profile=emergency instead
+
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Artifacts
+      description: Add binary links, Docker tags, or deployment notes.
+      placeholder: |
+        Windows artifacts: ...
+        Docker: ghcr.io/<org>/trafficlightcontrol:1.0.0
