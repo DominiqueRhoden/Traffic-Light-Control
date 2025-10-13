@@ -1,0 +1,48 @@
+name: Documentation Task
+description: Create or update a documentation deliverable (README, Wiki, API, or User Guide)
+title: "[Docs] <short summary>"
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: "### 📘 Documentation Update Request"
+
+  - type: input
+    id: doc_component
+    attributes:
+      label: Component / Area
+      description: Which doc (README, Wiki section, User Guide, etc.) does this affect?
+      placeholder: e.g., README → Quick start
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary of change
+      description: Describe what needs to be added, changed, or removed.
+      placeholder: Add install steps for macOS; correct build flags; remove deprecated option
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Reference links or context
+      description: Paste related PRs, commits, issues, or files.
+      placeholder: |
+        PR: #123
+        Commit: abcdef1
+        File: docs/user-guide.md
