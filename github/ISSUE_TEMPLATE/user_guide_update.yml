@@ -1,0 +1,38 @@
+name: User Guide Update
+description: Request edits or additions to the User Guide (installation, usage, troubleshooting)
+title: "[User Guide] <topic>"
+labels: ["documentation", "user-guide"]
+body:
+  - type: markdown
+    attributes:
+      value: "### 🧭 User Guide Section Update"
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      options:
+        - Installation
+        - Usage & Options
+        - Troubleshooting
+        - FAQ
+        - Other
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested_changes
+    attributes:
+      label: Requested change
+      description: Describe exactly what should be updated, including screenshots or command examples if possible.
+      placeholder: Add `dotnet workload install wasm-tools` to prerequisites on Windows
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why is this update needed? (e.g., outdated instructions, missing clarity, new feature)
+      placeholder: Instructions fail on clean VS installs; users report missing WebAssembly workload
