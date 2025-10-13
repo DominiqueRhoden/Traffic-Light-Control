@@ -1,0 +1,39 @@
+name: Documentation Task
+about: Create or update a documentation deliverable (README, Wiki, API, or User Guide)
+title: '[Docs] <short summary>'
+labels: ['documentation']
+body:
+- type: markdown
+attributes:
+value: '### 📘 Documentation Update Request'
+
+
+- type: input
+id: doc_component
+attributes:
+label: 'Component / Area'
+description: 'Which doc (README, Wiki section, User Guide, etc.) does this affect?'
+
+
+- type: textarea
+id: summary
+attributes:
+label: 'Summary of change'
+description: 'Describe what needs to be added, changed, or removed.'
+
+
+- type: dropdown
+id: priority
+attributes:
+label: 'Priority'
+options:
+- Low
+- Medium
+- High
+
+
+- type: textarea
+id: references
+attributes:
+label: 'Reference Links or Context'
+description: 'Paste related PRs, commits, or files here.'
