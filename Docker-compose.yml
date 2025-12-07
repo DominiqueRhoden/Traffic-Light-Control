@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  traffic-light-api:
+    build: .
+    container_name: traffic-light-control
+    ports:
+      - "8080:8080"
+    restart: always
