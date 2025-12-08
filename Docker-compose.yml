@@ -1,9 +1,14 @@
 version: "3.9"
 
 services:
-  traffic-light-api:
+  trafficlight:
     build: .
-    container_name: traffic-light-control
+    image: trafficlight_local:latest
+    container_name: trafficlight_local
     ports:
       - "8080:8080"
-    restart: always
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+
