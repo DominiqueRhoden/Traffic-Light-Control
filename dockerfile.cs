@@ -1,29 +1,24 @@
-# Stage 1: Build
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-
-# Set working directory
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy the solution file and restore dependencies
+# Copy csproj(s) and restore dependencies
 COPY *.sln .
 COPY TrafficLightControl/*.csproj ./TrafficLightControl/
+COPY TrafficLightControl.Tests/*.csproj ./TrafficLightControl.Tests/
 RUN dotnet restore
 
-# Copy the full source code
-COPY TrafficLightControl/. ./TrafficLightControl/
+# Copy the rest of the code and publish
+COPY . .
+RUN dotnet publish ./TrafficLightControl/ -c Release -o /app/publish
 
-# Publish the app to the /app folder
-WORKDIR /src/TrafficLightControl
-RUN dotnet publish -c Release -o /app/publish
-
-# Stage 2: Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
 COPY --from=build /app/publish .
-
-# Expose port if the app serves HTTP (change if needed)
-EXPOSE 5000
-
-# Run the application
 ENTRYPOINT ["dotnet", "TrafficLightControl.dll"]
+
+
 
